@@ -70,7 +70,10 @@ public class SimplifiedTweet {
     }
   }
 
-
+ public String getLanguage(){
+    return this.language;
+  }
+  
   @Override
   public String toString() {
     return new Gson().toJson(this);
