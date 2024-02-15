@@ -33,6 +33,18 @@
       <scope>import</scope>
     </dependency>
 
+    <dependency>
+          <groupId>com.amazonaws</groupId>
+          <artifactId>aws-java-sdk-s3</artifactId>
+          <version>1.12.653</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk-core</artifactId>
+      <version>1.12.653</version>
+    </dependency>
+
     <!-- End of dependencies added -->
 
     <dependency>
