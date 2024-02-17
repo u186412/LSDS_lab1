@@ -32,7 +32,7 @@ The toString() method has been implemented using the Gson's library functions
 # 4.- Implement an uploader: S3Uploader.java
 
 The program can recieve a series of files (though functionally it only has to process the single output file generated) and loads the 
-contents of the file to a String in memory which will then be uploaded to the specified bucket with a key of <bucket>/<language>, using the default
+contents of the file to a String in memory which will then be uploaded to the specified bucket with a key of (bucket)/(language), using the default
 credentials in the aws config file. If the user has no permissions to write to the bucket an exception will be thrown.
 
 # 5.- Benchmarking
