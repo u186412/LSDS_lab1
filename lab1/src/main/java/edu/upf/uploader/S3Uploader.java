@@ -15,20 +15,14 @@ public class S3Uploader implements Uploader {
     final String prefix;
     private AmazonS3 s3Client;
 
-    public S3Uploader(String bucketName, String prefix, AmazonS3 s3client){
+    public S3Uploader(String bucketName, String prefix, AmazonS3 s3Client){
         this.bucketName = bucketName;
         this.prefix = prefix;
         this.s3Client = s3Client;
     }
 
     public boolean bucketExists(){
-
-        if (s3Client.doesBucketExistV2(bucketName)){
-            return true;
-        } else {
-            s3Client.createBucket(bucketName);
-            return true;
-        }
+        return s3Client.doesBucketExistV2(bucketName);
     }
    
     @Override
