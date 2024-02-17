@@ -41,31 +41,33 @@ public class SimplifiedTweet {
    * @return an {@link Optional} of a {@link SimplifiedTweet}
    */
   public static Optional<SimplifiedTweet> fromJson(String jsonStr) {
-
     // PLACE YOUR CODE HERE!
     Gson gson = new Gson(); //to use gson library functions
     JsonObject json = gson.fromJson(jsonStr, JsonObject.class); //parse string to JsonObject
-    //extract all 'simplified' attributes. If json does not contain the attribute they will be null or -1.
-    long tweetId = json.has("id") ? json.get("id").getAsLong() : -1;
-    String text = json.has("text") ? json.get("text").getAsString() : null;
-    long userId = (json.has("user") && json.getAsJsonObject("user").has("id")) ? json.getAsJsonObject("user").get("id").getAsLong() : -1;
-    String userName = (json.has("user") && json.getAsJsonObject("user").has("name")) ? json.getAsJsonObject("user").get("name").getAsString() : null;
-    String language = json.has("lang") ? json.get("lang").getAsString() : null;
-    long timestampMs = json.has("timestamp_ms") ? json.get("timestamp_ms").getAsLong() : -1;
-
-
-    //construct Optional of the tweet
-    if (tweetId != -1 && userId != -1 && timestampMs != -1) {
-      Optional<SimplifiedTweet> tweet = Optional.ofNullable(tweetId)
-              .flatMap(txt -> Optional.ofNullable(text))
-              .flatMap(uId -> Optional.ofNullable(userId))
-              .flatMap(uName -> Optional.ofNullable(userName))
-              .flatMap(lang -> Optional.ofNullable(language))
-              .flatMap(tstmp -> Optional.ofNullable(timestampMs))
-              .map(twt -> new SimplifiedTweet(tweetId, text, userId, userName, language, timestampMs));
-      return tweet; //returns Optional.empty() if some String field was null
+    if (json != null) { //jsonStr is formatted correctly --> check it has necessary attributes
+      //extract all 'simplified' attributes. If json does not contain the attribute they will be null or -1.
+      long tweetId = json.has("id") ? json.get("id").getAsLong() : -1;
+      String text = json.has("text") ? json.get("text").getAsString() : null;
+      long userId = (json.has("user") && json.getAsJsonObject("user").has("id")) ? json.getAsJsonObject("user").get("id").getAsLong() : -1;
+      String userName = (json.has("user") && json.getAsJsonObject("user").has("name")) ? json.getAsJsonObject("user").get("name").getAsString() : null;
+      String language = json.has("lang") ? json.get("lang").getAsString() : null;
+      long timestampMs = json.has("timestamp_ms") ? json.get("timestamp_ms").getAsLong() : -1;
+      //construct Optional of the tweet
+      if (tweetId != -1 && userId != -1 && timestampMs != -1) {
+        Optional<SimplifiedTweet> tweet = Optional.ofNullable(tweetId)
+                .flatMap(txt -> Optional.ofNullable(text))
+                .flatMap(uId -> Optional.ofNullable(userId))
+                .flatMap(uName -> Optional.ofNullable(userName))
+                .flatMap(lang -> Optional.ofNullable(language))
+                .flatMap(tstmp -> Optional.ofNullable(timestampMs))
+                .map(twt -> new SimplifiedTweet(tweetId, text, userId, userName, language, timestampMs));
+        return tweet; //returns Optional.empty() if some String field was null
+      }
+      else { //missing some long value --> return empty optional value
+        return Optional.empty();
+      }
     }
-    else { //missing some long value --> return empty optional value
+    else { //passed jsonStr formatted incorrectly --> return empty optional value
       return Optional.empty();
     }
   }

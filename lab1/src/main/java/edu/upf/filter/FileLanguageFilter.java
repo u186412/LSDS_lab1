@@ -30,8 +30,8 @@ public class FileLanguageFilter implements LanguageFilter{
                 Optional<SimplifiedTweet> optionalTweet = SimplifiedTweet.fromJson(jline);
 
                 if (optionalTweet.isPresent() && optionalTweet.get().getLanguage().equals(language)) {
-                    // Write the tweet to the output file
-                    writer.write(jline);
+                    // Write the SIMPLIFIED tweet to the output file
+                    writer.write(optionalTweet.toString());
                     writer.newLine();
                 }
             }
