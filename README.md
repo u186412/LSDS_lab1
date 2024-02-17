@@ -45,4 +45,5 @@ The unit tests have been conducted using a few examples of tweets from the Eurov
 - Processing a sample valid tweet containing the necessary data results in an Optional of type SimplifiedTweet
 - Processing a json that is completly unrelated results in an empty optional
 - Processing a sample (otherwise valid) tweet containing all the necessary attributes EXCEPT FOR 1 ('id') results in an empty optional.
+
 These tests are checked at compile time, so maven makes sure automatically that they all pass before the application is ran. Were they to fail, no target folder would be generated.
