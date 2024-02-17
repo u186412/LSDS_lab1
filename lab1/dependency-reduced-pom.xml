@@ -58,7 +58,13 @@
             </goals>
           </execution>
         </executions>
-        <configuration />
+        <configuration>
+          <transformers>
+            <transformer>
+              <mainClass>edu.upf.TwitterFilter</mainClass>
+            </transformer>
+          </transformers>
+        </configuration>
       </plugin>
     </plugins>
   </build>
