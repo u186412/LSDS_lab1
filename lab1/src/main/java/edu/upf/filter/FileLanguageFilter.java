@@ -12,10 +12,13 @@ import edu.upf.parser.SimplifiedTweet;
 public class FileLanguageFilter implements LanguageFilter{
     final String inputFile;
     final String outputFile;
+    int tweetsFiltered;
 
     public FileLanguageFilter(String inputFile, String outputFile) {
         this.inputFile = inputFile;
         this.outputFile = outputFile;
+        // Initialize a counter for tweets filtered
+        this.tweetsFiltered = 0;
     }
     
     @Override
@@ -33,12 +36,19 @@ public class FileLanguageFilter implements LanguageFilter{
                     // Write the SIMPLIFIED tweet to the output file
                     writer.write(optionalTweet.toString());
                     writer.newLine();
+                    // Increment the counter for each tweet filtered
+                    tweetsFiltered++; 
                 }
             }
         } catch (IOException e) {
             // If an IO exception occurs, throw a new exception with a meaningful message
             throw new Exception("Error occurred while filtering tweets: " + e.getMessage());
         } 
+    }
+
+    // Method to get the number of tweets filtered
+    public int getTweetsFiltered() {
+        return tweetsFiltered;
     }
 }
 
