@@ -70,6 +70,49 @@ Tweets processed in data/Eurovision10.json: 169659
 Total running time is: 49315 milliseconds
 Total tweets processed in es are: 509435
 
+- For english:
+Running time for tweets in english:
+Processing: data/Eurovision3.json
+Tweets processed in data/Eurovision3.json: 24346
+Processing: data/Eurovision4.json
+Tweets processed in data/Eurovision4.json: 96430
+Processing: data/Eurovision5.json
+Tweets processed in data/Eurovision5.json: 50545
+Processing: data/Eurovision6.json
+Tweets processed in data/Eurovision6.json: 66596
+Processing: data/Eurovision7.json
+Tweets processed in data/Eurovision7.json: 39794
+Processing: data/Eurovision8.json
+Tweets processed in data/Eurovision8.json: 35569
+Processing: data/Eurovision9.json
+Tweets processed in data/Eurovision9.json: 18048
+Processing: data/Eurovision10.json
+Tweets processed in data/Eurovision10.json: 115275
+Total running time is: 46379 milliseconds
+Total tweets processed in en are: 446603
+
+- For catalan:
+Running time for tweets in catalan:
+Processing: data/Eurovision3.json
+Tweets processed in data/Eurovision3.json: 242
+Processing: data/Eurovision4.json
+Tweets processed in data/Eurovision4.json: 983
+Processing: data/Eurovision5.json
+Tweets processed in data/Eurovision5.json: 581
+Processing: data/Eurovision6.json
+Tweets processed in data/Eurovision6.json: 717
+Processing: data/Eurovision7.json
+Tweets processed in data/Eurovision7.json: 398
+Processing: data/Eurovision8.json
+Tweets processed in data/Eurovision8.json: 404
+Processing: data/Eurovision9.json
+Tweets processed in data/Eurovision9.json: 193
+Processing: data/Eurovision10.json
+Tweets processed in data/Eurovision10.json: 1065
+Total running time is: 41704 milliseconds
+Total tweets processed in ca are: 4583
+
+We did not encounter issues to perform the calculation. 
 
 # 6.- Extensions: TwitterFilterTest.java
 
