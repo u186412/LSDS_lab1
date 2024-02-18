@@ -25,8 +25,13 @@ To create an optional of type SimplifiedTweet, the following criteria is checked
 Failure to meet any of these criteria will result in an empty optional.
 The toString() method has been implemented using the Gson's library functions
 
-# 3.- Filter Class
+# 3.- Filter Class: FileLanguageFilter.java
 
+Part of the lab responsible of filtering from the input file the tweets based on the specified language and writing the filtered tweets to an output file. 
+Filter Class uses:
+- Language Filtering: Tweets are filtered based on the specified language (es, en, or ca). Only the tweets in the specified language are not discarded.
+- Input and Output Files: Class reads tweet data from input files, processes each tweet, and writes the filtered tweets to an output file. 
+- Exception Handling: To handle potential errors during file reading, writing, and tweet processing. Any encountered exceptions are appropriately handled and reported.
 
 
 # 4.- Implement an uploader: S3Uploader.java
