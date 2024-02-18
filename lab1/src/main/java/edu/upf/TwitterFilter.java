@@ -11,6 +11,8 @@ import java.util.List;
 
 public class TwitterFilter {
     public static void main( String[] args ) throws Exception {
+        long startTime = System.currentTimeMillis();
+
         //store necessary parameters
         List<String> argsList = Arrays.asList(args);
         if (argsList.size() < 4) {
@@ -27,13 +29,29 @@ public class TwitterFilter {
         }
 
         System.out.println("Language: " + language + ". Output file: " + outputFile + ". Destination bucket: " + bucket);
+        
+        // Initialize a counter for total tweets processed
+        int totalTweetsProcessed = 0;
         for(String inputFile: files) {
             System.out.println("Processing: " + inputFile);
             final FileLanguageFilter filter = new FileLanguageFilter(inputFile, outputFile);
+            
             filter.filterLanguage(language);
-        }
+
+            // Retrieve the number of tweets processed for the current file
+            int tweetsProcessed = filter.getTweetsFiltered();
+            System.out.println("Tweets processed in " + inputFile + ": " + tweetsProcessed);
+
+            // Update the total number of tweets processed
+            totalTweetsProcessed += tweetsProcessed;
+         }
+
 
         final S3Uploader uploader = new S3Uploader(bucket, language);
         uploader.upload(Arrays.asList(outputFile));
-    }
+
+        long endTime = System.currentTimeMillis();
+        long totalTime = endTime - startTime;
+        System.out.println("Total running time is: " + totalTime + " milliseconds");
+        System.out.println("Total tweets processed in "+ language + " are: " + totalTweetsProcessed);    }
 }
