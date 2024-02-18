@@ -41,7 +41,34 @@ contents of the file to a String in memory which will then be uploaded to the sp
 credentials in the aws config file. If the user has no permissions to write to the bucket an exception will be thrown.
 
 # 5.- Benchmarking
+The operating system we used to run this is a macOS Sonoma 14.3, with a memory of 8GB.
 
+To execute it we used: java -cp target/lab1-1.0-SNAPSHOT.jar edu.upf.TwitterFilter [language] output.txt lsds2024.lab1.output.u186615 data/Eurovision3.json data/Eurovision4.json data/Eurovision5.json data/Eurovision6.json data/Eurovision7.json data/Eurovision8.json data/Eurovision9.json data/Eurovision10.json 
+Where the language is the language of the tweets we want to select and lsds2024.lab1.output.u186615 is the bucket where the files are uploaded to.
+
+For the benchmarking, We used the currentTimeMillis function, in order to calculate the running time of the code in milliseconds. 
+We did a substraction by calculating the running time at the beggining and at the end of the code. 
+We performed the benchmark and counted the tweets for each language. 
+- For spanish: 
+Running time for tweets in spanish:
+Processing: data/Eurovision3.json
+Tweets processed in data/Eurovision3.json: 23848
+Processing: data/Eurovision4.json
+Tweets processed in data/Eurovision4.json: 78433
+Processing: data/Eurovision5.json
+Tweets processed in data/Eurovision5.json: 45800
+Processing: data/Eurovision6.json
+Tweets processed in data/Eurovision6.json: 71677
+Processing: data/Eurovision7.json
+Tweets processed in data/Eurovision7.json: 54969
+Processing: data/Eurovision8.json
+Tweets processed in data/Eurovision8.json: 38805
+Processing: data/Eurovision9.json
+Tweets processed in data/Eurovision9.json: 26244
+Processing: data/Eurovision10.json
+Tweets processed in data/Eurovision10.json: 169659
+Total running time is: 49315 milliseconds
+Total tweets processed in es are: 509435
 
 
 # 6.- Extensions: TwitterFilterTest.java
